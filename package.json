@@ -1,0 +1,29 @@
+{
+  "name": "projectplanner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adustin21/projectPlanner.git"
+  },
+  "author": "adustin21",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adustin21/projectPlanner/issues"
+  },
+  "homepage": "https://github.com/adustin21/projectPlanner#readme",
+  "dependencies": {
+    "webpack": "^5.66.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^10.2.4",
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.3"
+  }
+}
