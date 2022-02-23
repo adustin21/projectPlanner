@@ -9,6 +9,10 @@ export const plusButton = (task) => {
 		`plusButton_${task.status}`
 	]);
 	element.style.backgroundImage = `url(${Icon_Plus})`
-	element.onclick = () => manageMap.createTask(task.id)
+	element.addEventListener("click", e => {
+		e.stopPropagation();
+		manageMap.createTask(task.id)
+		manageMap.moveFocus(task.id)
+	})
 	return element;
 }
