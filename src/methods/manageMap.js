@@ -1,4 +1,4 @@
-import { constants } from "../constants";
+import { constants } from "../assets/constants";
 import { deleteItem } from "./deleteItem";
 import { manageDB } from "./manageDB"
 import { markItem, recursiveMarker } from "./markItem";

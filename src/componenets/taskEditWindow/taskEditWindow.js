@@ -1,4 +1,4 @@
-import { constants } from "../../constants"
+import { constants } from "../../assets/constants"
 import { elementCreator } from "../elementCreator"
 import { submitButton } from "./button/button"
 import "./taskEditWindow.css"

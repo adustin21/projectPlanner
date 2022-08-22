@@ -1,4 +1,4 @@
-import { constants } from "../../../constants";
+import { constants } from "../../../assets/constants";
 import { button__delete } from "./delete/delete";
 import { button__done } from "./done/done";
 import { button__edit } from "./edit/edit";

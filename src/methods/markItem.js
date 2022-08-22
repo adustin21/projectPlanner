@@ -1,4 +1,4 @@
-import { constants } from "../constants";
+import { constants } from "../assets/constants";
 import { editItem } from "./editItem";
 import { manageDB } from "./manageDB";
 import { manageMap } from "./manageMap";

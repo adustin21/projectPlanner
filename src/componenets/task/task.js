@@ -1,4 +1,4 @@
-import { constants } from '../../constants';
+import { constants } from '../../assets/constants';
 import { manageMap } from '../../methods/manageMap';
 import { elementCreator } from '../elementCreator';
 import { plusButton } from '../plusButton/plusButton';

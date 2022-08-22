@@ -1,4 +1,4 @@
-import { manageMap } from "./scripts/methods/manageMap";
+import { manageMap } from "../src/methods/manageMap";
 
 window.onload = () => {
 	// if ('serviceWorker' in navigator) {

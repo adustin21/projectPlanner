@@ -1,6 +1,6 @@
 import { taskEditWindow } from "../componenets/taskEditWindow/taskEditWindow"
 import { mainContainer } from "../componenets/mainContainer"
-import { constants } from "../constants";
+import { constants } from "../assets/constants";
 
 /**
  * Deletes all elements that are child elements of the parent

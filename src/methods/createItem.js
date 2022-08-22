@@ -1,9 +1,9 @@
-import { constants } from "../constants";
+import { constants } from "../assets/constants";
 import { manageDB, set } from "./manageDB";
 import { manageMap } from "./manageMap";
 
 /**
- * Accepts `itemTaskTemp` object and creates a new record (task) in the database
+ * Get `itemTaskTemp` object and creates a new record (task) in the database
  * @param {{}} itemTaskTemp
  */
 export const createItem = (
