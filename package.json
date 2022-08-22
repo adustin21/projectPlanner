@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "dev": "npx webpack serve",
+    "docs": "jsdoc --configure jsdoc.json -r",
+    "build": "npx webpack"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,10 @@
     "webpack": "^5.66.0"
   },
   "devDependencies": {
+    "clean-jsdoc-theme": "^4.1.7",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.5.1",
+    "jsdoc": "^3.6.11",
     "style-loader": "^3.3.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.3"

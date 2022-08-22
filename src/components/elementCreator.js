@@ -1,7 +1,6 @@
-
 /**
- * Returns an HTML element that has class or classes passing in first argument
- * and that is parent to elements passing in second argument
+ * Returns an HTMLDivElement that has class or classes passing in the first argument
+ * and that is parent to elements passing in the second argument.
  *
  * Each element in the array of the second argument must be a callback that
  * returns an HTML element, else it will be handled as a string

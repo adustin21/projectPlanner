@@ -1,5 +1,5 @@
-import { taskEditWindow } from "../componenets/taskEditWindow/taskEditWindow"
-import { mainContainer } from "../componenets/mainContainer"
+import { taskEditWindow } from "../components/taskEditWindow/taskEditWindow"
+import { mainContainer } from "../components/mainContainer"
 import { constants } from "../assets/constants";
 
 /**
