@@ -62,3 +62,6 @@ export const addFunctionToExecute = (fn) => {
   requestFunction = [...requestFunction, fn]
   openDB()
 }
+
+/**@typedef {import("./doc/manageDB").TDBVersion} TDBVersion*/
+/**@typedef {import("./doc/manageDB").TDBCallback} TDBCallback*/

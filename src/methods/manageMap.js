@@ -1,16 +1,14 @@
-import { constants } from "../assets/constants";
-import { deleteItem } from "./deleteItem";
+import { constants } from "../assets/constants"
+import { deleteItem } from "./deleteItem"
 import { manageDB } from "./manageDB"
-import { markItem, recursiveMarker } from "./markItem";
-import { redraw } from "./redraw";
-
-// /** @namespace manageMap~manageMap__inner */
+import { markItem } from "./markItem"
+import { redraw } from "./redraw"
 
 /* Variables */
 
 /** @type {TVisibleMap} */
 let map = {}
-/** @type {import("./redraw").TRedrawMode} */
+/** @type {TRedrawMode} */
 let redrawMode = constants.REDRAWMODE.DEFAULT;
 /** @type {ID} */
 let focus = constants.MOTHER;
@@ -123,7 +121,7 @@ const updateMap = (db) => {
 /* Public methods */
 /**
  * Changes the redrawing mode without starting the redrawing
- * @param { import("./redraw").TRedrawMode } newRedrawMode
+ * @param { TRedrawMode } newRedrawMode
  * @memberof module:manageMap~manageMap__public
  */
 export const changeRedrawMode = (newRedrawMode) => {
@@ -205,3 +203,13 @@ export const markTask = (status) => {
 export const renderApp = () => {
 	manageDB.addFunctionToExecute(updateMap)
 }
+
+/**@typedef {import("./doc/manageMap").TTaskStatus} TTaskStatus*/
+/**@typedef {import("./doc/manageMap").TServiceID} TServiceID*/
+/**@typedef {import("./doc/manageMap").ID} ID*/
+/**@typedef {import("./doc/manageMap").TTask} TTask*/
+/**@typedef {import("./doc/manageMap").TBranch} Tbranch*/
+/**@typedef {import("./doc/manageMap").TMap} TMap*/
+/**@typedef {import("./doc/manageMap").TVisibleMap} TVisibleMap*/
+
+/**@typedef {import("./redraw").TRedrawMode} TRedrawMode*/

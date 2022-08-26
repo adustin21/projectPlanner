@@ -67,13 +67,6 @@
  * @module manageMap
  */
 
-/** @typedef {"atWork" | "default"} TTaskStatus @memberof manageMap*/
-/** @typedef {"mother" | "projectInfo" } TServiceID */
-/** @typedef {number | TServiceID} ID */
-/** @typedef {{id: ID, mother: ID, title: string, description: string, time: string, subTaskCount: number, status: TTaskStatus}} TTask */
-/** @typedef {TTask[]} TBranch */
-/** @typedef {{allTasks: {[id: string]: TTask}, projectInfo: [TTask], [id: string]: TBranch}} TMap*/
-/** @typedef {{task: TTask, subTasks: TBranch, focus: TTask}} TVisibleMap */
 
 /**
  * @namespace manageMap__inner
@@ -85,3 +78,13 @@
  * @description
  * Public methods of the manageMap module.
  */
+
+/** @typedef {"atWork" | "default"} TTaskStatus */
+/** @typedef {"mother" | "projectInfo" } TServiceID */
+/** @typedef {number | TServiceID} ID */
+/** @typedef {{id: ID, mother: ID, title: string, description: string, time: string, subTaskCount: number, status: TTaskStatus}} TTask */
+/** @typedef {TTask[]} TBranch */
+/** @typedef {{allTasks: {[id: string]: TTask}, projectInfo: [TTask], [id: string]: TBranch}} TMap*/
+/** @typedef {{task: TTask, subTasks: TBranch, focus: TTask}} TVisibleMap */
+
+export const manageMapTypes = null;

@@ -21,13 +21,6 @@
  * @module manageDB
  */
 
-/** @typedef {number} TDBVersion */
-/**
- * @callback TDBCallback
- * @param {IDBDatabase} db
- * @return {void}
- */
-
 /**
  * @namespace manageDB__inner
  * @description
@@ -38,3 +31,13 @@
  * @description
  * Public methods of the manageDB namespace.
  */
+
+
+/** @typedef {number} TDBVersion */
+/**
+ * @callback TDBCallback
+ * @param {IDBDatabase} db
+ * @return {void}
+ */
+
+export const manageDBTypes = null
