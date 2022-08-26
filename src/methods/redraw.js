@@ -1,5 +1,5 @@
 import { taskEditWindow } from "../components/taskEditWindow/taskEditWindow"
-import { mainContainer } from "../components/mainContainer"
+import { mainContainer } from "../components/mainContainer/mainContainer"
 import { constants } from "../assets/constants";
 
 /**
@@ -15,6 +15,7 @@ const clean = (parent, elemntsToBeCleanedArray) => {
 		}
 	});
 }
+/** @typedef {"default" | "create" | "edit" | "warning" | "lowerWarning"} TRedrawMode*/
 /**
  * Redraws dom tree based on map and motherId
  * If motherId isn't false, the task editing window will be drawn

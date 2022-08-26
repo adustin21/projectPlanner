@@ -1,6 +1,6 @@
 import { constants } from "../assets/constants";
-/** @module manageDB */
 
+/** @module manageDB */
 /**
  * The module for working with a database
  */

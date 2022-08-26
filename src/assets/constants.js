@@ -15,6 +15,7 @@ export const constants = {
 		MOTHER: "mother",
 		DONE: "taskIsDone"
 	},
+	/** @type {{[mode: string]: TRedrawMode}} */
 	REDRAWMODE: {
 		DEFAULT: "default",
 		CREATE: "create",
@@ -22,6 +23,7 @@ export const constants = {
 		WARNING: "warning",
 		LOWERWARNING: "lowerWarning",
 	},
+	/** @type {{[status: string]: TTaskStatus} */
 	TASKSTATUS: {
 		ATWORK: "atWork",
 		DONE: "done"
