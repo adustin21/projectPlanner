@@ -5,7 +5,9 @@ import { renderApp } from "./manageMap";
 /**
  * Get an object with the TTask type and creates a new record
  * in the IndexedDB.
- * @param {TTask} itemTaskTemp
+ * @function
+ * @param {TTask} task
+ * @memberof Methods
  */
 export const createItem = (task) => {
 	/** Creates callback for manageDB module.

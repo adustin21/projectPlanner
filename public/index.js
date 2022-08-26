@@ -1,4 +1,4 @@
-import { manageMap } from "../src/methods/manageMap";
+import { renderApp } from "../src/methods/manageMap";
 
 window.onload = () => {
 	// if ('serviceWorker' in navigator) {
@@ -9,5 +9,7 @@ window.onload = () => {
 	// 		console.log('SW registration failed: ', registrationError);
 	// 	});
 	// }
-	manageMap.renderApp();
+
+	/* App Rendered */
+	renderApp();
 }

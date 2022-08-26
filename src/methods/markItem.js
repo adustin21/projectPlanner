@@ -1,26 +1,29 @@
-import { constants } from "../assets/constants";
-import { editItem } from "./editItem";
-import { manageDB } from "./manageDB";
-import { manageMap } from "./manageMap";
+import { constants } from "../assets/constants"
+import { addFunctionToExecute } from "./manageDB"
+import { renderApp } from "./manageMap"
 /**
  * Formats object for the database.
- * Deletes `subTasksCount` field and change `status`
- * @param {{}} task
- * @param {String} status
- * @returns new task object
+ * Deletes the subTasksCount field and change the status field
+ * @param {TTask} task
+ * @param {TTaskStatus} status
+ * @returns {{
+ * 	id: ID,mother: ID,title: string,
+ * 	description: string,time: string
+ * }}
  */
 const formatTask = (task, status) => {
 	const newTask = {...task, status}
 	delete newTask.subTasksCount
 	return newTask
 }
+
 /**
- * Marks task and subtasks to the database recursively
+ * Marks task and sub-tasks in the database recursively
  * Need IDBObjectStore and open transaction
  * @param {IDBObjectStore} store
- * @param {{}} task
- * @param {{}} map
- * @param {{}} status
+ * @param {TTask} task
+ * @param {TMap} map
+ * @param {TTaskStatus} status
  */
 const recursiveMarker = (store, task, map, status) => {
 	const subTasksArray = map[task.id];
@@ -31,13 +34,14 @@ const recursiveMarker = (store, task, map, status) => {
 	}
 	store.put(formatTask(task, status))
 }
+
 /**
- * Marks task and mothertasks to the database recursively
+ * Marks task and mother-tasks in the database recursively
  * Need IDBObjectStore and open transaction
  * @param {IDBObjectStore} store
- * @param {{}} task
- * @param {{}} map
- * @param {{}} status
+ * @param {TTask} task
+ * @param {TMap} map
+ * @param {TTaskStatus} status
  */
 const reversMarker = (store, task, map, status) => {
 	if (task.mother != constants.MOTHER) {
@@ -46,15 +50,25 @@ const reversMarker = (store, task, map, status) => {
 	}
 	store.put(formatTask(task, status))
 }
+/**
+ * Change status of task in the IndexedDB
+ * Also change the status of sub-task or mother-tasks based
+ * on the status value.
+ * @function
+ * @param {TTask} task
+ * @param {TMap} map
+ * @param {TStatus} status
+ * @memberof Methods
+ */
 export const markItem = (task, map, status) => {
-	/**
-		* Mark a task and its subtasks in a databese
-		* The function isn't used outside of the `manageDB.addFunctionToExecute` method
-		* @param {IDBDatabase} db - The databese to handle
-	*/
+	/** Creates callback for manageDB module.
+	 * @type {TDBCallback}
+	 */
 	const markTask = (db) => {
-		const transaction = db.transaction(constants.DB.STORENAME, "readwrite");
-		const store = transaction.objectStore(constants.DB.STORENAME);
+		const transaction =
+			db.transaction(constants.DB.STORENAME, "readwrite")
+		const store =
+			transaction.objectStore(constants.DB.STORENAME)
 		switch (status) {
 			case constants.TASKSTATUS.DONE:
 				recursiveMarker(store, task, map, status);
@@ -67,8 +81,14 @@ export const markItem = (task, map, status) => {
 				break;
 		}
 		transaction.oncomplete = () => {
-			manageMap.renderApp();
+			renderApp();
 		}
 	}
-	manageDB.addFunctionToExecute(markTask);
+	addFunctionToExecute(markTask);
 }
+
+/**@typedef {import("./doc/manageMap").ID} ID*/
+/**@typedef {import("./doc/manageMap").TTask} TTask*/
+/**@typedef {import("./doc/manageMap").TMap} TMap*/
+/**@typedef {import("./doc/manageMap").TTaskStatus} TTaskStatus*/
+/**@typedef {import("./doc/manageDB").TDBCallback} TDBCallback*/

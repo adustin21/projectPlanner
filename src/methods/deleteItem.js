@@ -1,41 +1,53 @@
 import { constants } from "../assets/constants"
-import { manageDB } from "./manageDB"
-import { manageMap } from "./manageMap";
+import { addFunctionToExecute } from "./manageDB"
+import { moveCursor, moveFocus, renderApp } from "./manageMap"
 
 /**
  * Deletes task and subtasks in the database recursively
- * Need IDBObjectStore and open transaction
+ * Needs IDBObjectStore and open transaction
  * @param {IDBObjectStore} store
  * @param {ID} id
- * @param {{}} map
+ * @param {TMap} map
  */
 const taskDestroyer = (store, id, map) => {
-	const task = map.allTasks[id];
-	const subTasksArray = map[id];
-	if (subTasksArray) {
-		subTasksArray.forEach(subTask => {
+	const task = map.allTasks[id]
+	const branch = map[id]
+	if (branch) {
+		branch.forEach(subTask => {
 			taskDestroyer(store, subTask.id, map)
 		});
 	}
-	const deleteRequest = store.delete(task.id)
+	store.delete(task.id)
 }
 
+/**
+ * Deletes task and its sub-tasks from the IndexedDB
+ * @function
+ * @param {ID} taskID
+ * @param {TMap} map
+ * @memberof Methods
+ */
 export const deleteItem = (taskID, map) => {
 	/**
-		* Delete a task and its subtasks from the database by ID
-		* The function isn't used outside of the `manageDB.addFunctionToExecute` method
-		* @param {IDBDatabase} db - The databese to handle
+	 * Creates callback for the manageDB module
+	 * @type {TDBCallback}
 	*/
 	const deleteTask = (db) => {
-		const transaction = db.transaction(constants.DB.STORENAME, "readwrite");
-		const store = transaction.objectStore(constants.DB.STORENAME);
+		const transaction =
+			db.transaction(constants.DB.STORENAME, "readwrite")
+		const store =
+			transaction.objectStore(constants.DB.STORENAME)
 		taskDestroyer(store, taskID, map)
 		transaction.oncomplete = () => {
 			const motherId = map.allTasks[taskID].mother;
-			manageMap.moveCursor(motherId);
-			manageMap.moveFocus(motherId);
-			manageMap.renderApp();
+			moveCursor(motherId);
+			moveFocus(motherId);
+			renderApp();
 		}
 	}
-	manageDB.addFunctionToExecute(deleteTask)
+	addFunctionToExecute(deleteTask)
 }
+
+/**@typedef {import("./doc/manageMap").ID} ID*/
+/**@typedef {import("./doc/manageMap").TMap} TMap*/
+/**@typedef {import("./doc/manageDB").TDBCallback} TDBCallback*/

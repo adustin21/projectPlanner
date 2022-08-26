@@ -82,7 +82,7 @@
 /** @typedef {"atWork" | "default"} TTaskStatus */
 /** @typedef {"mother" | "projectInfo" } TServiceID */
 /** @typedef {number | TServiceID} ID */
-/** @typedef {{id: ID, mother: ID, title: string, description: string, time: string, subTaskCount: number, status: TTaskStatus}} TTask */
+/** @typedef {{id: ID, mother: ID, title: string, description: string, time: string, subTasksCount: number, status: TTaskStatus}} TTask */
 /** @typedef {TTask[]} TBranch */
 /** @typedef {{allTasks: {[id: string]: TTask}, projectInfo: [TTask], [id: string]: TBranch}} TMap*/
 /** @typedef {{task: TTask, subTasks: TBranch, focus: TTask}} TVisibleMap */

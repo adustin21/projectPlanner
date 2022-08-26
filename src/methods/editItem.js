@@ -1,25 +1,30 @@
 import { constants } from "../assets/constants"
-import { manageDB } from "./manageDB";
-import { manageMap } from "./manageMap";
+import { addFunctionToExecute } from "./manageDB";
+import { renderApp } from "./manageMap";
 
 /**
- * Accepts `itemTaskTemp` object and edit the record (task) with relevant id
- * @param {{}} itemTaskTemp
+ * Get an object with the TTask type and edit a record in the
+ * IndexedDB by ID
+ * @function
+ * @param {TTask} task
+ * @memberof Methods
  */
-export const editItem = (itemTaskTemp) => {
-	/**
-		* Edits a task in the database
-		*
-		* The function isn't used outside of the `manageDB.addFunctionToExecute` method
-		* @param {IDBDatabase} db - The databese to handle
-	*/
+export const editItem = (task) => {
+	/** Creates callback for manageDB module.
+	 * @type {TDBCallback}
+	 */
 	const editTask = (db) => {
-		const transaction = db.transaction(constants.DB.STORENAME, "readwrite");
-		const store = transaction.objectStore(constants.DB.STORENAME);
+		const transaction =
+			db.transaction(constants.DB.STORENAME, "readwrite")
+		const store =
+			transaction.objectStore(constants.DB.STORENAME);
 		store.put(itemTaskTemp)
 		transaction.oncomplete = () => {
-			manageMap.renderApp()
+			renderApp()
 		}
 	}
-	manageDB.addFunctionToExecute(editTask);
+	addFunctionToExecute(editTask);
 }
+
+/**@typedef {import("./doc/manageMap").TTask} TTask*/
+/**@typedef {import("./doc/manageDB").TDBCallback} TDBCallback*/
