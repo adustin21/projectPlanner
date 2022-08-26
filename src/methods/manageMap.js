@@ -4,22 +4,7 @@ import { manageDB } from "./manageDB"
 import { markItem, recursiveMarker } from "./markItem";
 import { redraw } from "./redraw";
 
-/**
- * @namespace manageMap
- * @description
- * Namespace of the manageMap module.
- */
-/**
- * @namespace manageMap.inner
- * @description
- * Inner methods of the manageMap namespace.
- * */
-/**
- * @namespace manageMap.public
- * @description
- * Public methods of the manageMap namespace.
- * */
-
+// /** @namespace manageMap~manageMap__inner */
 
 /* Variables */
 
@@ -44,7 +29,7 @@ let cursor = constants.MOTHER;
  * @param {number} subTasksCount Counter of subtasks
  * @param {string} status Task completion status
  * @returns {TTask} Task template object
- * @memberof manageMap.inner
+ * @memberof module:manageMap~manageMap__inner
  */
 const createTaskTemplate = (
 	id = null, mother = null, title = "",
@@ -55,7 +40,7 @@ const createTaskTemplate = (
 /**
  * Returns the initial map state object.
  * @returns {TMap}
- * @memberof manageMap.inner
+ * @memberof module:manageMap~manageMap__inner
  */
 const getDefaultMap = () => {
 	const mother = createTaskTemplate(
@@ -75,7 +60,7 @@ const getDefaultMap = () => {
  * @param {ID} cursor Main task id (head node of the tree)
  * @param {ID} focus Selected task id
  * @returns {TVisibleMap}
- * @memberof manageMap.inner
+ * @memberof module:manageMap~manageMap__inner
  */
 const getVisibleMap = (map, cursor, focus) => {
 	return {
@@ -91,8 +76,8 @@ const getVisibleMap = (map, cursor, focus) => {
 * redraw function is called.
 * The function isn't used outside of the
 * manageDB.addFunctionToExecute method
-* @param {IDBDatabase} db - The databese to handle
- * @memberof manageMap.inner
+* @type {TDBCallback}
+* @memberof module:manageMap~manageMap__inner
 */
 const updateMap = (db) => {
 	/* Variables Defined */
@@ -139,7 +124,7 @@ const updateMap = (db) => {
 /**
  * Changes the redrawing mode without starting the redrawing
  * @param { import("./redraw").TRedrawMode } newRedrawMode
- * @memberof manageMap.public
+ * @memberof module:manageMap~manageMap__public
  */
 export const changeRedrawMode = (newRedrawMode) => {
 	redrawMode = newRedrawMode;
@@ -148,7 +133,7 @@ export const changeRedrawMode = (newRedrawMode) => {
 /**
  * Moves `focus` and redraws app with a new description window
  * @param { ID } toValue
- * @memberof manageMap.public
+ * @memberof module:manageMap~manageMap__public
  */
 export const moveFocus  = (newFocus) => {
 	focus = newFocus
@@ -158,7 +143,7 @@ export const moveFocus  = (newFocus) => {
 /**
  * Moves `cursor` and redraws app with new visible map
  * @param { ID }
- * @memberof manageMap.public
+ * @memberof module:manageMap~manageMap__public
  */
 export const moveCursor = (newCursor) => {
 	cursor = newCursor
@@ -171,7 +156,7 @@ export const moveCursor = (newCursor) => {
  * window will be drawn.
  * @returns { function } returns a function that changes the
  * redrawing mode to the previous value
- * @memberof manageMap.public
+ * @memberof module:manageMap~manageMap__public
 */
 export const createTask = () => {
 	const oldRedrawMode = redrawMode
@@ -184,7 +169,7 @@ export const createTask = () => {
 /**
  * Edits focused `task` in database and render UI again.
  * @param { ID } id
- * @memberof manageMap.public
+ * @memberof module:manageMap~manageMap__public
  */
 export const editTask = () => {
 	redrawMode = constants.REDRAWMODE.EDIT
@@ -194,7 +179,7 @@ export const editTask = () => {
 /**
  * Deletes task by ID from database and render UI again.
  * @param { ID } id
- * @memberof manageMap.public
+ * @memberof module:manageMap~manageMap__public
  */
 export const deleteTask = (id) => {
 	deleteItem(id, map)
@@ -203,7 +188,7 @@ export const deleteTask = (id) => {
 /**
  * Changes status of the focused task in the database
  * @param { TTaskStatus } status
- * @memberof manageMap.public
+ * @memberof module:manageMap~manageMap__public
  */
 export const markTask = (status) => {
 	markItem(
@@ -215,7 +200,7 @@ export const markTask = (status) => {
 
 /**
  * Updates the map based on database data and redraws DOM
- * @memberof manageMap.public
+ * @memberof module:manageMap~manageMap__public
  */
 export const renderApp = () => {
 	manageDB.addFunctionToExecute(updateMap)

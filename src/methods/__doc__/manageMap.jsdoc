@@ -9,9 +9,9 @@
  * <br>
  *
  * All of the public methods of the manageMap belong to the
- * manageMap.public namespace.
+ * manageMap__public namespace.
  * All of the inner methods of the manageMap belong to the
- * manageMap.inner namespace.
+ * manageMap__inner namespace.
  * <br>
  * <br>
  *
@@ -75,4 +75,13 @@
 /** @typedef {{allTasks: {[id: string]: TTask}, projectInfo: [TTask], [id: string]: TBranch}} TMap*/
 /** @typedef {{task: TTask, subTasks: TBranch, focus: TTask}} TVisibleMap */
 
-/** @typedef {"default" } puk*/
+/**
+ * @namespace manageMap__inner
+ * @description
+ * Inner methods of the manageMap module.
+ */
+/**
+ * @namespace manageMap__public
+ * @description
+ * Public methods of the manageMap module.
+ */
