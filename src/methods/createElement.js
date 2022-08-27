@@ -30,8 +30,12 @@ export const createElement = (name, children = []) => {
 		if(child instanceof Function &&
 			child() instanceof HTMLElement)
 			element.appendChild(child())
-		else
-			element.appendChild(document.createTextNode(child))
+		else{
+			const span = document.createElement("span")
+			const text = document.createTextNode(child)
+			span.appendChild(text)
+			element.appendChild(span)
+		}
 	})
 
 	/* Element returned */

@@ -1,4 +1,5 @@
 import { createElement } from "../../methods/createElement"
+import { task } from "../task/task"
 import "./mainContainer.css"
 
 /**
@@ -10,7 +11,7 @@ import "./mainContainer.css"
 export const mainContainer = (map) => {
 	/* Element Created */
 	const element = createElement('mainContainer', [
-		"task",
+		() => task(map.task),
 		"description",
 		"subtasks"
 	])

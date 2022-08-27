@@ -4,6 +4,8 @@ body{
 	margin: 0;
 	font-family: 'Kumbh Sans', sans-serif;
 	font-size: 14px;
+	font-weight: bold;
+	background: #1E213F;
 }
 .mainContainer{
 	width: 100%;
