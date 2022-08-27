@@ -1,8 +1,5 @@
-import { elementCreator } from '../elementCreator'
-import { description } from '../description/description'
-import { subTasks } from '../subTasks/subTasks'
-import { task } from '../task/task'
-import './mainContainer.css'
+import { createElement } from "../../methods/createElement"
+import "./mainContainer.css"
 
 /**
  * Return the root component.
@@ -12,16 +9,14 @@ import './mainContainer.css'
  */
 export const mainContainer = (map) => {
 	/* Element Created */
+	const element = createElement('mainContainer', [
+		"task",
+		"description",
+		"subtasks"
+	])
 
-	const element = elementCreator("mainContainer", [
-		() => task(map.task, map.focus.id),
-		() => subTasks(map.subTasks, map.focus.id),
-		() => description(map.focus)
-	]);
-
-	/* Element returned */
-
-	return element;
+	/* Element Returned */
+	return element
 }
 
 /** @typedef {import("../../methods/doc/manageMap").TVisibleMap} TVisibleMap*/

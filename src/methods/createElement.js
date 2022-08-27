@@ -35,5 +35,5 @@ export const createElement = (name, children = []) => {
 	})
 
 	/* Element returned */
-	return el;
+	return element
 }

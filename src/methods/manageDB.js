@@ -22,7 +22,7 @@ const executeRecievedCallbacs = (db) => {
   callbacksToExecute.forEach(fn => {
     fn(db)
   })
-  requestFunction = []
+  callbacksToExecute = []
 }
 
 /**
@@ -59,7 +59,7 @@ const openDB = () => {
 * @memberof module:manageDB~manageDB__public
 */
 export const addFunctionToExecute = (fn) => {
-  requestFunction = [...requestFunction, fn]
+  callbacksToExecute = [...callbacksToExecute, fn]
   openDB()
 }
 

@@ -1,6 +1,6 @@
 import { constants } from "../assets/constants"
 import { deleteItem } from "./deleteItem"
-import { manageDB } from "./manageDB"
+import { addFunctionToExecute, manageDB } from "./manageDB"
 import { markItem } from "./markItem"
 import { redraw } from "./redraw"
 
@@ -202,7 +202,7 @@ export const markTask = (status) => {
  * @memberof module:manageMap~manageMap__public
  */
 export const renderApp = () => {
-	manageDB.addFunctionToExecute(updateMap)
+	addFunctionToExecute(updateMap)
 }
 
 /**@typedef {import("./doc/manageMap").TTaskStatus} TTaskStatus*/

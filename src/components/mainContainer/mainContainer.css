@@ -1,33 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 body{
 	padding: 0;
 	margin: 0;
+	font-family: 'Kumbh Sans', sans-serif;
+	font-size: 14px;
 }
 .mainContainer{
-	width: calc(100% - 2em);
+	width: 100%;
 	max-width: 1440px;
+	box-sizing: border-box;
 	display: grid;
-	margin: 1em;
+	padding: 2.5em;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: 80px auto;
-	grid-template-areas:
-	"task subtask description";
+	grid-template-areas: "task subtasks description";
 }
 @media screen and (max-width: 1100px) {
 	.mainContainer{
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-areas:
-		"task subtask"
-		"description subtask";
+		grid-template-areas: "description subtask";
 	}
 }
 @media screen and (max-width: 767px) {
 	.mainContainer{
 		grid-template-columns: 1fr;
-
 		grid-template-rows: auto;
-		grid-template-areas:
-		"task"
-		"description"
-		"subtask";
+		grid-template-areas: "description" "subtask";
 	}
 }

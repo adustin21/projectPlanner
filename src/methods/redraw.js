@@ -1,4 +1,4 @@
-import { taskEditWindow } from "../components/taskEditWindow/taskEditWindow"
+// import { taskEditWindow } from "../components/taskEditWindow/taskEditWindow"
 import { mainContainer } from "../components/mainContainer/mainContainer"
 import { constants } from "../assets/constants";
 
@@ -35,10 +35,10 @@ export const redraw = (map, mode) => {
 			document.body.
 				appendChild(taskEditWindow({mother: map.task.id}))
 			break;
-		case constants.REDRAWMODE.EDIT:
-			document.body.
-				appendChild(taskEditWindow({...map.focus}))
-			break;
+		// case constants.REDRAWMODE.EDIT:
+		// 	document.body.
+		// 		appendChild(taskEditWindow({...map.focus}))
+		// 	break;
 		default:
 			break;
 	}
