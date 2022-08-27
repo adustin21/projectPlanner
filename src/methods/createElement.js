@@ -8,10 +8,10 @@
  * Each element in the array of the second argument must be a
  * callback that returns an HTML element, else it will be handled
  * as a string
- * @param { string | string[]} name Class name or array
+ * @param { string | string[]} name Class name or array.
  * of class names.
- * @param {String[] | (() => HTMLElement)[]} children Array of a strings or
- * functions that returns an HTML element
+ * @param {String[] | (() => HTMLElement)[]} children Array of
+ * a strings or callbacks that returns an HTML element.
  * @returns {HTMLDivElement}
  * @memberof Methods
  */
