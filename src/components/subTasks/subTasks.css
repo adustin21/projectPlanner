@@ -1,9 +1,0 @@
-.subTasks{
-	margin: 0;
-}
-.subTask{
-	grid-area: subTask;
-	/* See in task.css */
-	margin-bottom: 20px;
-	cursor: pointer;
-}

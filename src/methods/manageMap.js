@@ -28,8 +28,9 @@ let cursor = constants.MOTHER;
  * @param {string} status Task completion status
  * @returns {TTask} Task template object
  * @memberof module:manageMap~manageMap__inner
+ * @memberof module:manageMap~manageMap__public
  */
-const createTaskTemplate = (
+export const createTaskTemplate = (
 	id = null, mother = null, title = "",
 	description = "", time = constants.INFINITYSYM,
 	subTasksCount = 0, status = constants.TASKSTATUS.ATWORK,
@@ -149,9 +150,9 @@ export const moveCursor = (newCursor) => {
 }
 
 /**
- * Changes redraw mode to value "edit" value without
- * starting the redrawing. Next rendering DOM the task edit
- * window will be drawn.
+ * Changes redraw mode to "edit" value without
+ * starting the redrawing. The next time the DOM is rendered,
+ * the task edit window will be drawn.
  * @returns { function } returns a function that changes the
  * redrawing mode to the previous value
  * @memberof module:manageMap~manageMap__public

@@ -5,25 +5,23 @@ import { task } from '../task/task'
 import './mainContainer.css'
 
 /**
- * @name mainContainer
- * @description
- * Root component of the application.
- * <br>
- *
- * Creates div which has three child:
- * {@link Components.task}
- * @param {{
- * 	task: object,
- * 	subTasks: object,
- * 	focus: object
- * }} map
+ * Return the root component.
+ * @param {TVisibleMap} map
+ * @return {HTMLDivElement}
  * @memberof Components
- * @type {Component}
  */
 export const mainContainer = (map) => {
-	return elementCreator("mainContainer", [
+	/* Element Created */
+
+	const element = elementCreator("mainContainer", [
 		() => task(map.task, map.focus.id),
 		() => subTasks(map.subTasks, map.focus.id),
 		() => description(map.focus)
 	]);
+
+	/* Element returned */
+
+	return element;
 }
+
+/** @typedef {import("../../methods/doc/manageMap").TVisibleMap} TVisibleMap*/

@@ -29,3 +29,6 @@ export const constants = {
 		DONE: "done"
 	}
 }
+
+/** @typedef {import("../methods/doc/manageMap").TTaskStatus} TTaskStatus*/
+/** @typedef {import("../methods/redraw").TRedrawMode} TTaskStatus*/
