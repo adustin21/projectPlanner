@@ -21,7 +21,7 @@
 	top: -4px;
 	left: -4px;
 	z-index: -1;
-	background: linear-gradient(95deg, #f87070, #d881f8);
+	background: linear-gradient(45deg, #f87070, #d881f8);
 	border-radius: 10px;
 }
 .task::before{
@@ -33,6 +33,6 @@
 	left: 10px;
 	top: 10px;
 	z-index: -1;
-	background: linear-gradient(90deg, #f87070, #d881f8);
+	background: linear-gradient(45deg, #f87070, #d881f8);
 	filter: blur(50px) opacity(0.5);
 }
