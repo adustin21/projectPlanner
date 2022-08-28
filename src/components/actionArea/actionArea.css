@@ -1,0 +1,9 @@
+.actionArea{
+	margin: 1.3em 0;
+}
+.actionArea__title{
+	font-size: 20px;
+	line-height: 34px;
+	color: #D881F8;
+	margin-bottom: 0.75em;
+}

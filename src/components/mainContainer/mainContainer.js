@@ -4,11 +4,6 @@ import { subTasks } from "../subTasks/subTasks"
 import { task } from "../task/task"
 import "./mainContainer.css"
 
-const demoSubtasks = [
-	{id: 0, mother: "mother", title: "First"},
-	{id: 1, mother: "mother", title: "Second"},
-	{id: 2, mother: "mother", title: "Third"},
-]
 /**
  * Returns the root component.
  * @param {TVisibleMap} map
@@ -20,7 +15,7 @@ export const mainContainer = (map) => {
 	const element = createElement('mainContainer', [
 		() => task(map.task),
 		() => description(map.task),
-		() => subTasks(demoSubtasks)
+		() => subTasks(map.subTasks)
 	])
 
 	/* Element Returned */

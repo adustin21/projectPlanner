@@ -1,6 +1,6 @@
-// import { taskEditWindow } from "../components/taskEditWindow/taskEditWindow"
 import { mainContainer } from "../components/mainContainer/mainContainer"
 import { constants } from "../assets/constants";
+import { editWindow } from "../components/editWindow/editWindow";
 
 /**
  * Deletes all elements that are child elements of the parent
@@ -27,18 +27,18 @@ const clean = (parent, elemntsToBeCleanedArray) => {
 export const redraw = (map, mode) => {
 	clean(document.body, [
 		document.querySelector(".mainContainer"),
-		document.querySelector(".taskEditWindow"),
+		document.querySelector(".editWindow"),
 	])
 	document.body.appendChild(mainContainer(map))
 	switch (mode) {
 		case constants.REDRAWMODE.CREATE:
 			document.body.
-				appendChild(taskEditWindow({mother: map.task.id}))
+				appendChild(editWindow(map.task, "create"))
 			break;
-		// case constants.REDRAWMODE.EDIT:
-		// 	document.body.
-		// 		appendChild(taskEditWindow({...map.focus}))
-		// 	break;
+		case constants.REDRAWMODE.EDIT:
+			document.body.
+				appendChild(editWindow({...map.focus}))
+			break;
 		default:
 			break;
 	}

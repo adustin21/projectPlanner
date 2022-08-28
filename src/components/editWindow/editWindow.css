@@ -1,0 +1,40 @@
+.editWindow{
+	position: fixed;
+	width: 42em;
+	height: 28em;
+	box-shadow: 0 0 0 100vw #1E213FBF;
+	top: calc(50vh - 14em );
+	left: calc(50vw - 21em);
+	background: #303385;
+	box-sizing: border-box;
+	padding: 0 1.8em;
+}
+.editWindow__input, .editWindow__textarea{
+	width: 100%;
+	margin-top: 3.4em;
+	font-family: inherit;
+	font-size: 18px;
+	font-weight: bold;
+	background: #161932;
+	border: none;
+	outline: none;
+	padding: .5em 1em;
+	color: #D7E0FF;
+	box-sizing: border-box;
+}
+.editWindow__input::placeholder, .editWindow__textarea::placeholder{
+	color: #D7E0FF;
+}
+.editWindow__input:focus-visible, .editWindow__textarea:focus-visible{
+	outline: #D881F8 solid 1px;
+}
+.editWindow__textarea{
+	height: 14em;
+	margin-top: 1em;
+}
+.editWindow .button{
+	height: min-content;
+	margin-left: 1em;
+	margin-top: 2em;
+	float: right;
+}

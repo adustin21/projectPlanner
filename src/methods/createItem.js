@@ -10,6 +10,7 @@ import { renderApp } from "./manageMap";
  * @memberof Methods
  */
 export const createItem = (task) => {
+	console.log("hello")
 	/** Creates callback for manageDB module.
 	 * @type {TDBCallback}
 	 */

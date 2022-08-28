@@ -1,4 +1,5 @@
 import { createElement } from "../../methods/createElement"
+import { changeRedrawMode, renderApp } from "../../methods/manageMap"
 import { actionArea } from "../actionArea/actionArea"
 import { button } from "../button/button"
 import "./description.css"
@@ -10,8 +11,9 @@ import "./description.css"
  */
 const clickParser = (event) => {
 	switch (event.target.name) {
-		case "":
-
+		case "createChild":
+			changeRedrawMode("create");
+			renderApp()
 			break;
 
 		default:

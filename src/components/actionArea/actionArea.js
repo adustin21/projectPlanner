@@ -1,4 +1,5 @@
 import { createElement } from "../../methods/createElement"
+import "./actionArea.css"
 
 /**
  * Returns the actionArea component.
@@ -12,8 +13,9 @@ export const actionArea = (title, buttons) => {
 	const buttonsElements = buttons.map(button=>()=>button)
 
 	/* Elements Created */
+	const elementTitle = createElement('actionArea__title', [title])
 	const element = createElement('actionArea', [
-		title,
+		()=>elementTitle,
 		...buttonsElements
 	])
 

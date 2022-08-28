@@ -150,7 +150,7 @@ export const moveCursor = (newCursor) => {
 }
 
 /**
- * Changes redraw mode to "edit" value without
+ * Changes redraw mode to "create" value without
  * starting the redrawing. The next time the DOM is rendered,
  * the task edit window will be drawn.
  * @returns { function } returns a function that changes the

@@ -1,4 +1,5 @@
 import { createCustomElement } from "../../methods/createCustomElement"
+import "./button.css"
 
 /**
  * Returns the button component.
@@ -10,7 +11,7 @@ import { createCustomElement } from "../../methods/createCustomElement"
  */
 export const button = (type, name, value) => {
 	/* Element Created */
-	const classes = ['button', `button__${type}`]
+	const classes = ['button', `button_${type}`]
 	/**@type {HTMLButtonElement} */
 	const element =
 		createCustomElement('button', classes ,[value])

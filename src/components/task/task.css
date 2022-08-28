@@ -1,6 +1,6 @@
 .task{
 	grid-area: "task";
-	width: 100%;
+	width: 90%;
 	height: max-content;
 	box-sizing: border-box;
 	font-size: 28px;
