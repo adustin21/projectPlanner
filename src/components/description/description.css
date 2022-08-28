@@ -1,0 +1,31 @@
+.description{
+	grid-area: "description";
+	width: 100%;
+	height: max-content;
+	box-sizing: border-box;
+	color: #D7E0FF;
+	padding: 0 .1em;
+	background: #1E213F;
+	border-radius: 8px;
+	position: relative;
+}
+.description::after{
+	display: block;
+	content: "";
+	width: calc(100% + 8px);
+	height: calc(100% + 8px);
+	position: absolute;
+	top: -4px;
+	left: -4px;
+	z-index: -1;
+	background: linear-gradient(45deg, #f87070, #d881f8);
+	border-radius: 10px;
+}
+.description__title{
+	font-size: 28px;
+	line-height: 34px;
+	padding: 1.2em 0;
+}
+.description__text{
+	opacity: 0.6;
+}

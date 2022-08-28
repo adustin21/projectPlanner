@@ -3,7 +3,8 @@
  * an HTMLDivElement based on it.
  * <br>
  *
- * Component always return result of {@link createElement}.
+ * Component always return result of {@link createElement} or
+ * {@link createCustomElement}.
  * <br>
  *
  * Components always using camelCase for naming.

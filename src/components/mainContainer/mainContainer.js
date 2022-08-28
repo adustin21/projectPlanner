@@ -1,4 +1,5 @@
 import { createElement } from "../../methods/createElement"
+import { description } from "../description/description"
 import { subTasks } from "../subTasks/subTasks"
 import { task } from "../task/task"
 import "./mainContainer.css"
@@ -9,7 +10,7 @@ const demoSubtasks = [
 	{id: 2, mother: "mother", title: "Third"},
 ]
 /**
- * Return the root component.
+ * Returns the root component.
  * @param {TVisibleMap} map
  * @return {HTMLDivElement}
  * @memberof Components
@@ -18,7 +19,7 @@ export const mainContainer = (map) => {
 	/* Element Created */
 	const element = createElement('mainContainer', [
 		() => task(map.task),
-		"description",
+		() => description(map.task),
 		() => subTasks(demoSubtasks)
 	])
 
