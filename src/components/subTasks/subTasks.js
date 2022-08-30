@@ -5,10 +5,6 @@ import "./subTasks.css"
 
 /**
  * Return the subtasks component.
- * <br>
- * <br>
- *
- * !Changes some styles of task component!
  * @param {TBranch[]} tasks
  * @return {HTMLDivElement}
  * @memberof Components

@@ -36,6 +36,10 @@ module.exports = {
 					to: "index.html"
 				},
 				{
+					from: "./public/metacover.png",
+					to: "metacover.png"
+				},
+				{
 					from: "./public/favicon.ico",
 					to: "favicon.ico"
 				},

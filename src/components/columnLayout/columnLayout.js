@@ -4,7 +4,7 @@ import { link } from "../link/link"
 import "./columnLayout.css"
 
 /**
- * Returns the root component.
+ * Returns the layout wrapper.
  * @param {(()=>HTMLElement)[]} children
  * @param {"task" | "subtasks" | "description" | "empty"} type
  * @return {HTMLDivElement}
