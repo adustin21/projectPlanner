@@ -13,9 +13,22 @@
 	cursor: pointer;
 	border-radius: 16px;
 }
+.button_default{
+	background: #303385;
+}
+.button_inactive{
+	background: #161932;
+}
 .button_link{
 	text-decoration: underline;
 	padding: 0;
+}
+.button_inactive_link{
+	padding: 0;
+	color: #D7E0FF80
+}
+.button_inactive_link:hover{
+	color: #D7E0FF;
 }
 .button_link:hover{
 	color: #70F3F8;

@@ -1,6 +1,5 @@
 .task{
-	grid-area: "task";
-	width: 90%;
+	width: 100%;
 	height: max-content;
 	box-sizing: border-box;
 	font-size: 28px;
@@ -35,4 +34,10 @@
 	z-index: -1;
 	background: linear-gradient(45deg, #f87070, #d881f8);
 	filter: blur(50px) opacity(0.5);
+}
+.task_done::after{
+	opacity: 0.3;
+}
+.task_done::before{
+	display: none;
 }

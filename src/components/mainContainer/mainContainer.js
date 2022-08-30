@@ -1,7 +1,7 @@
 import { createElement } from "../../methods/createElement"
+import { columnLayout } from "../columnLayout/columnLayout"
 import { description } from "../description/description"
 import { subTasks } from "../subTasks/subTasks"
-import { task } from "../task/task"
 import "./mainContainer.css"
 
 /**
@@ -11,11 +11,16 @@ import "./mainContainer.css"
  * @memberof Components
  */
 export const mainContainer = (map) => {
+	/* Elements parsed */
+	const elements = [
+		() => columnLayout([()=>description(map.task)], 'task'),
+		() => columnLayout([()=>subTasks(map.subTasks)],
+							map.subTasks.length ?'subtasks':'empty')
+	]
+
 	/* Element Created */
 	const element = createElement('mainContainer', [
-		() => task(map.task),
-		() => description(map.task),
-		() => subTasks(map.subTasks)
+		...elements
 	])
 
 	/* Element Returned */

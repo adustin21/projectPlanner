@@ -1,6 +1,5 @@
 .subTasks{
-	justify-self: end;
-	width: 90%;
+	width: 100%;
 }
 .subTasks .task{
 	width: 100%;
@@ -14,6 +13,9 @@
 }
 .subTasks .task:hover{
 	background: #161932;
+}
+.subTasks .task_done:hover{
+	background: #1E213F;
 }
 .subTasks .task:hover::before{
 	height: calc(100% - 20px);

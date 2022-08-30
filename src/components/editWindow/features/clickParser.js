@@ -1,5 +1,7 @@
 import { createItem } from "../../../methods/createItem";
+import { editItem } from "../../../methods/editItem";
 import { changeRedrawMode, renderApp } from "../../../methods/manageMap";
+import { description } from "../../description/description";
 import { formData } from "./formData";
 
 /**
@@ -10,11 +12,11 @@ import { formData } from "./formData";
  */
 export const clickParser = (event, task) => {
 	switch (event.target.name) {
-		case "cancel":
+		case clickType.cancel:
 			changeRedrawMode("default")
 			renderApp()
 			break;
-		case "create":
+		case clickType.create:
 			changeRedrawMode("default")
 			createItem({
 				mother: task.id,
@@ -24,8 +26,23 @@ export const clickParser = (event, task) => {
 				time: "",
 				status: "atWork"
 			})
+			break ;
+		case clickType.edit:
+			changeRedrawMode("default")
+			editItem({
+				...task,
+				subTasksCount:undefined,
+				title: formData.getInputData(),
+				description: formData.getTextareaData()
+			})
+			break ;
 		default:
 			break;
 	}
+}
+export const clickType = {
+	cancel: "cancel",
+	edit: "edit",
+	create: "create"
 }
 /**@typedef {import("../../../methods/doc/manageMap").TTask} TTask*/

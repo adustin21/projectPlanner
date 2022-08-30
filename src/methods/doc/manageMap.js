@@ -56,8 +56,8 @@
  * <br>
  * <br>
  *
- * - FOCUS is a task that the user focused and whose data he wants
- * to see.
+ * - FOCUS [Deprecated] is a task that the user focused and whose
+ * data he wants to see.
  * <br>
  * <br>
  *
@@ -79,7 +79,7 @@
  * Public methods of the manageMap module.
  */
 
-/** @typedef {"atWork" | "default"} TTaskStatus */
+/** @typedef {"atWork" | "done"} TTaskStatus */
 /** @typedef {"mother" | "projectInfo" } TServiceID */
 /** @typedef {number | TServiceID} ID */
 /** @typedef {{id: ID, mother: ID, title: string, description: string, time: string, subTasksCount: number, status: TTaskStatus}} TTask */

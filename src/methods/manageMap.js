@@ -6,7 +6,7 @@ import { redraw } from "./redraw"
 
 /* Variables */
 
-/** @type {TVisibleMap} */
+/** @type {TMap} */
 let map = {}
 /** @type {TRedrawMode} */
 let redrawMode = constants.REDRAWMODE.DEFAULT;
@@ -130,6 +130,7 @@ export const changeRedrawMode = (newRedrawMode) => {
 }
 
 /**
+ * [Deprecated]
  * Moves `focus` and redraws app with a new description window
  * @param { ID } toValue
  * @memberof module:manageMap~manageMap__public
@@ -150,23 +151,16 @@ export const moveCursor = (newCursor) => {
 }
 
 /**
- * Changes redraw mode to "create" value without
- * starting the redrawing. The next time the DOM is rendered,
- * the task edit window will be drawn.
- * @returns { function } returns a function that changes the
- * redrawing mode to the previous value
+ * Changes redraw mode to "create" value and re-render UI.
  * @memberof module:manageMap~manageMap__public
 */
 export const createTask = () => {
-	const oldRedrawMode = redrawMode
 	redrawMode = constants.REDRAWMODE.CREATE
-	return () => {
-		redrawMode = oldRedrawMode
-	}
+	redraw(getVisibleMap(map, cursor, focus), redrawMode)
 }
 
 /**
- * Edits focused `task` in database and render UI again.
+ * Changes redraw mode to "edit" value and re-render UI.
  * @param { ID } id
  * @memberof module:manageMap~manageMap__public
  */
@@ -185,13 +179,13 @@ export const deleteTask = (id) => {
 }
 
 /**
- * Changes status of the focused task in the database
+ * Changes status of the cursor in the database
  * @param { TTaskStatus } status
  * @memberof module:manageMap~manageMap__public
  */
 export const markTask = (status) => {
 	markItem(
-		map.allTasks[focus],
+		map.allTasks[cursor],
 		map,
 		status
 	)
@@ -209,7 +203,7 @@ export const renderApp = () => {
 /**@typedef {import("./doc/manageMap").TServiceID} TServiceID*/
 /**@typedef {import("./doc/manageMap").ID} ID*/
 /**@typedef {import("./doc/manageMap").TTask} TTask*/
-/**@typedef {import("./doc/manageMap").TBranch} Tbranch*/
+/**@typedef {import("./doc/manageMap").TBranch} TBranch*/
 /**@typedef {import("./doc/manageMap").TMap} TMap*/
 /**@typedef {import("./doc/manageMap").TVisibleMap} TVisibleMap*/
 

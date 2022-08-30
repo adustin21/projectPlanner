@@ -18,7 +18,7 @@ export const editItem = (task) => {
 			db.transaction(constants.DB.STORENAME, "readwrite")
 		const store =
 			transaction.objectStore(constants.DB.STORENAME);
-		store.put(itemTaskTemp)
+		store.put(task)
 		transaction.oncomplete = () => {
 			renderApp()
 		}

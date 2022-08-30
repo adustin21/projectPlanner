@@ -2,7 +2,10 @@ export const constants = {
 	MOTHER: "mother",
 	PROJECTDATA: {
 		TITLE: "Project Planner",
-		DESCRIPTION: "The Project Planer is a simple task planner with a tree structure."
+		DESCRIPTION:
+		`The Project Planer is a simple task planner with a tree structure.
+
+		Click the "create task" button to create a new sub-task.`
 	},
 	BLOCK: "block",
 	INFINITYSYM: "∞",

@@ -1,0 +1,17 @@
+.link{
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 19px;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+	color: #D7E0FF;
+	cursor: pointer;
+}
+.link_green_fill{
+	padding: 1em 2em;
+	background: #70F3F8;
+	color: #303385;
+	text-decoration: none;
+	text-align: center;
+	border-radius: 16px;
+}

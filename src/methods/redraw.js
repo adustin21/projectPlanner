@@ -37,7 +37,7 @@ export const redraw = (map, mode) => {
 			break;
 		case constants.REDRAWMODE.EDIT:
 			document.body.
-				appendChild(editWindow({...map.focus}))
+				appendChild(editWindow(map.task, "edit"))
 			break;
 		default:
 			break;

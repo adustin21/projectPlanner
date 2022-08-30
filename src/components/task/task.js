@@ -22,6 +22,7 @@ export const task = (taskObject) => {
 	/* Element Modified */
 	element.setAttribute('data-id', taskObject.id)
 	element.setAttribute('data-mother', taskObject.mother)
+	element.classList.add(`task_${taskObject.status}`)
 
 	/* Element Returned */
 	return element

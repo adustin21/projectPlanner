@@ -1,4 +1,5 @@
 import { createElement } from "../../methods/createElement"
+import { moveCursor } from "../../methods/manageMap"
 import { task } from "../task/task"
 import "./subTasks.css"
 
@@ -22,7 +23,11 @@ export const subTasks = (tasks) => {
 	const element = createElement('subTasks', [
 		...tasksElements
 	])
-
+	/** Handlers Added */
+	element.onclick = e => {
+		const dataID = e.target.getAttribute('data-id')
+		if (dataID) moveCursor(dataID)
+	}
 	/* Element Returned */
 	return element
 }

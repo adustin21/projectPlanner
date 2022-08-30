@@ -1,25 +1,9 @@
 import { createElement } from "../../methods/createElement"
-import { changeRedrawMode, renderApp } from "../../methods/manageMap"
 import { actionArea } from "../actionArea/actionArea"
 import { button } from "../button/button"
 import "./description.css"
+import { clickParser, clickType } from "./features/clickHandler"
 
-/**
- * Parses click event, defines target and call relevant
- * manageMap method.
- * @param {MouseEvent} event
- */
-const clickParser = (event) => {
-	switch (event.target.name) {
-		case "createChild":
-			changeRedrawMode("create");
-			renderApp()
-			break;
-
-		default:
-			break;
-	}
-}
 /**
  * Returns the description component.
  * @param {TTask} task
@@ -34,22 +18,28 @@ export const description = (task) => {
 		createElement('description__text', [task.description])
 	const elementTree =
 		actionArea('Tree', [
-			button('link', 'parent', 'go to the parent'),
-			button('link', 'createChild', 'create sub-task')
+			button('link', clickType.parent, '↰go to the parent'),
+			button('link', clickType.createChild, '+create sub-task')
 		])
 	const elementMotherTree =
 		actionArea('Tree', [
-			button('link', 'createChild', 'create sub-task')
+			button('link', clickType.createChild, '+create sub-task')
 		])
 	const elementStatus =
 		actionArea('Status', [
-			button('default', 'inWork', 'in work'),
-			button('default', 'complete', 'complete')
+			button(task.status === "atWork"?'default':'inactive_link',
+			clickType.inWork, 'in work'),
+			button(task.status === "done"?'default':'inactive_link',
+			clickType.complete, 'complete')
 		])
 	const elementActions =
-		actionArea('Status', [
-			button('default', 'edit', 'edit'),
-			button('danger', 'delete', 'delete')
+		actionArea('Actions', [
+			button('default', clickType.edit, 'edit'),
+			button('danger', clickType.delete, 'delete')
+		])
+	const elementDoneActions =
+		actionArea('Actions', [
+			button('danger', clickType.delete, 'delete')
 		])
 
 	/* Children elements parsed and united */
@@ -59,7 +49,9 @@ export const description = (task) => {
 		task.id === "mother" && (()=>elementMotherTree),
 		task.id !== "mother" && (()=>elementTree),
 		task.id !== "mother" && (()=>elementStatus),
-		task.id !== "mother" && (()=>elementActions),
+		task.id !== "mother" && task.status === 'atWork' &&
+					(()=>elementActions),
+		task.status === 'done' && (()=>elementDoneActions)
 
 	].filter(child=>child)
 
@@ -67,7 +59,9 @@ export const description = (task) => {
 	const element = createElement('description', elementChildren)
 
 	/** Handlers Added */
-	element.onclick = clickParser
+	element.onclick = e=>clickParser(e, task)
+	/** Element Modified */
+	element.classList.add(`description_${task.status}`)
 	/* Element Returned */
 	return element
 }

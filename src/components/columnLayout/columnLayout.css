@@ -1,0 +1,23 @@
+.columnLayout{
+	width: 100%;
+	display: grid;
+}
+.columnLayout_task{
+	width: calc(100% - 1.5em);
+}
+.columnLayout_subtasks{
+	width: calc(100% - 1.5em);
+	justify-self: end;
+}
+.columnLayout__header{
+	text-align: center;
+	font-size: 48px;
+	letter-spacing: 0.01em;
+	color: #D7E0FF;
+	margin-bottom: .75em;
+	margin-top: 0;
+}
+.columnLayout .link{
+	margin-top: 2em;
+	border: 4px solid #70F3F8;
+}
