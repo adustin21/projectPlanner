@@ -36,7 +36,7 @@ npm run docs
 ## PWA
 In this version of the app, I've dropped the PWA functionality, but you can get it back by uncommenting a few lines in the index.js file
 ## Accessibility
-This version of the application inherits significant accessibility issues due to the methods of implementing the component approach. By default, all elements are HTMLDivElements. This problem will be solved with the migration to the new component rendering kernel in future versions.
+This version of the application inherits significant accessibility issues due to the methods of implementing the component approach. By default, all elements are HTMLDivElements. This problem will be solved with the migration to the new component rendering core in future versions.
 ## Optimization
 The current version of the core does not implement any rendering optimization methods. This is justified by the relatively small DOM tree. However, the next version of the core is being developed with this problem in mind.
 There are also costly operations that slow down the application; in the next version, the map module will also be optimized.
